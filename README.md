@@ -1,29 +1,37 @@
-# fraud-transaction-detection-system-
-A machine learning-based system for detecting potentially fraudulent financial transactions.
+print("===================================")
+print("   FRAUD TRANSACTION DETECTOR")
+print("===================================")
 
-# Fraud Transaction Detection System
+amount = float(input("Enter transaction amount: ₹"))
+transaction_type = input("Enter transaction type (Online/ATM/UPI): ")
+hour = int(input("Enter transaction hour (0-23): "))
 
-## Overview
-This project detects potentially fraudulent transactions
-using machine learning.
+risk = 0
 
-## Features
-- Transaction data analysis
-- Fraud detection
-- Prediction of suspicious transactions
-- Simple and user-friendly output
+# Check transaction amount
+if amount > 50000:
+    risk += 40
 
-## Tech Stack
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib
+# Check transaction time
+if hour < 6 or hour > 23:
+    risk += 30
 
-## How to Run
-1. Install Python
-2. Install required libraries
-3. Run fraud_detection.py
+# Check transaction type
+if transaction_type.lower() == "online":
+    risk += 10
 
-## Project Status
-Currently under development.
+print("\n-----------------------------------")
+print("Transaction Analysis")
+print("-----------------------------------")
+
+print("Amount: ₹", amount)
+print("Type:", transaction_type)
+print("Time:", hour, ":00")
+print("Risk Score:", risk, "%")
+
+if risk >= 50:
+    print("⚠️ RESULT: POTENTIAL FRAUD")
+else:
+    print("✅ RESULT: LEGITIMATE TRANSACTION")
+
+print("-----------------------------------") 
