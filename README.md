@@ -1,6 +1,6 @@
-print("===================================")
-print("   FRAUD TRANSACTION DETECTOR")
-print("===================================")
+
+print("=====FRAUD TRANSACTION DETECTOR=====")
+
 
 amount = float(input("Enter transaction amount: ₹"))
 transaction_type = input("Enter transaction type (Online/ATM/UPI): ")
@@ -8,21 +8,20 @@ hour = int(input("Enter transaction hour (0-23): "))
 
 risk = 0
 
-# Check transaction amount
-if amount > 50000:
+
+if amount > 50000:# Check transaction amount
     risk += 40
 
 # Check transaction time
-if hour < 6 or hour > 23:
+if hour < 6 or hour > 23:# Check transaction time
     risk += 30
 
-# Check transaction type
-if transaction_type.lower() == "online":
+
+if transaction_type.lower() == "online": # Check transaction type
     risk += 10
 
-print("\n-----------------------------------")
-print("Transaction Analysis")
-print("-----------------------------------")
+
+print("=====Transaction Analysis=====")
 
 print("Amount: ₹", amount)
 print("Type:", transaction_type)
@@ -30,8 +29,7 @@ print("Time:", hour, ":00")
 print("Risk Score:", risk, "%")
 
 if risk >= 50:
-    print("⚠️ RESULT: POTENTIAL FRAUD")
+    print("WARNING RESULT: POTENTIAL FRAUD")
 else:
-    print("✅ RESULT: LEGITIMATE TRANSACTION")
+    print("DONE RESULT: LEGITIMATE TRANSACTION")
 
-print("-----------------------------------") 
